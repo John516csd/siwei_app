@@ -9,7 +9,7 @@ import Content from '@/components/Content';
 
 export const DataProvider = React.createContext({});
 
-export default function IndexPage() {
+function IndexPage() {
   const [meetingMap, setMeetingMap] = useState<API.IMeetingMap>({});
   const [meetingList, setMeetingList] = useState<API.INotesItem[]>([]);
   const [loading, setLoading] = useState(false);
@@ -46,6 +46,7 @@ export default function IndexPage() {
         }
         meetingMap[key] = [...meetingMap[key], note];
       }
+      console.log(meetingMap);
       setMeetingMap(meetingMap);
     } catch (err) {
       console.log('请求接口出错');
@@ -75,3 +76,5 @@ export default function IndexPage() {
     </DataProvider.Provider>
   );
 }
+
+export default IndexPage;

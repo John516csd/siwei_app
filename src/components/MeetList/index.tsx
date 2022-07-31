@@ -3,6 +3,7 @@ import { DataProvider } from '@/pages/index';
 import { Box, Grid, Skeleton, Typography } from '@mui/material';
 import NoteItem from '@/components/NoteItem';
 import LoadingCom from '../Loading';
+import style from './index.less';
 
 const MeetingList = (props: API.IMeetingListProp) => {
   const meetingMap = useContext<API.IMeetingMap>(DataProvider);
@@ -26,10 +27,8 @@ const MeetingList = (props: API.IMeetingListProp) => {
           <Box
             sx={{
               height: 'calc(100vh - 75px)',
-              overflow: 'scroll',
-              overflowX: 'hidden',
-              overflowY: 'auto',
             }}
+            className={style.list}
           >
             {isLoading ? (
               <LoadingCom />

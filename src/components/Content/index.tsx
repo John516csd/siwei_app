@@ -6,15 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { getDateTime, getDuringTime } from '@/utils';
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
+import style from './index.less';
 
 const content = (props: API.IContentProp) => {
   const { meetingList, activeId } = props;
@@ -37,10 +29,11 @@ const content = (props: API.IContentProp) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#1B1E28',
       }}
     >
       {activeNote ? (
-        <Card sx={{ width: 320, marginBottom: '200px' }}>
+        <Card sx={{ width: 320, marginBottom: '200px' }} className={style.card}>
           <CardContent>
             <Typography
               sx={{ fontSize: 14 }}
@@ -59,7 +52,10 @@ const content = (props: API.IContentProp) => {
           </CardContent>
         </Card>
       ) : (
-        <Typography variant="h3" sx={{ marginBottom: '200px' }}>
+        <Typography
+          variant="h3"
+          sx={{ marginBottom: '200px', color: '#ffffff' }}
+        >
           Not active note
         </Typography>
       )}
